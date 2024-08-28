@@ -1,0 +1,34 @@
+graph TD
+    A[Start] --> B[Trigger: Push to main, PR, or manual]
+    B --> C[Checkout code]
+    C --> D[Set up Python]
+    D --> E[Install dependencies]
+    E --> F[Pull English resources to Lokalise]
+    F --> G[Run translation memory check]
+    G --> H[Run machine translation]
+    H --> I[Run MQM QA check]
+    I --> J[Create human QA task]
+    J --> K[Push translations to GitHub]
+    K --> L[End]
+
+    subgraph "Environment Setup"
+    C
+    D
+    E
+    end
+
+    subgraph "Lokalise Operations"
+    F
+    G
+    H
+    J
+    end
+
+    subgraph "Quality Assurance"
+    I
+    J
+    end
+
+    subgraph "Version Control"
+    K
+    end
